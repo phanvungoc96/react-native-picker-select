@@ -8,6 +8,7 @@ import {
     TextInput,
     TouchableOpacity,
     View,
+    Image
 } from 'react-native';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
@@ -63,6 +64,7 @@ export default class RNPickerSelect extends PureComponent {
 
         // Custom Icon
         Icon: PropTypes.func,
+        Logo: PropTypes.func,
         InputAccessoryView: PropTypes.func,
     };
 
@@ -90,6 +92,7 @@ export default class RNPickerSelect extends PureComponent {
         touchableDoneProps: {},
         touchableWrapperProps: {},
         Icon: null,
+        Logo: null,
         InputAccessoryView: null,
     };
 
@@ -390,7 +393,7 @@ export default class RNPickerSelect extends PureComponent {
     }
 
     renderTextInputOrChildren() {
-        const { children, style, textInputProps } = this.props;
+        const { children, style, textInputProps, Logo } = this.props;
         const { selectedItem } = this.state;
 
         const containerStyle =
@@ -406,6 +409,7 @@ export default class RNPickerSelect extends PureComponent {
 
         return (
             <View pointerEvents="box-only" style={containerStyle}>
+            
                 <TextInput
                     testID="text_input"
                     style={[
@@ -418,6 +422,10 @@ export default class RNPickerSelect extends PureComponent {
                     {...textInputProps}
                 />
                 {this.renderIcon()}
+                <Image source={Logo} 
+                style={{height: 20, width: 20, position: 'absolute', margin: 12}}
+
+                />
             </View>
         );
     }
