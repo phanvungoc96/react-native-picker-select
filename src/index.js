@@ -64,7 +64,7 @@ export default class RNPickerSelect extends PureComponent {
 
         // Custom Icon
         Icon: PropTypes.func,
-        Logo: PropTypes.func,
+        Logo: PropTypes.number,
         InputAccessoryView: PropTypes.func,
     };
 
