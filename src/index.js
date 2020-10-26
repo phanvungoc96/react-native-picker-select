@@ -63,8 +63,8 @@ export default class RNPickerSelect extends PureComponent {
         touchableWrapperProps: PropTypes.shape({}),
 
         // Custom Icon
-        Icon: PropTypes.func,
-        Logo: PropTypes.number,
+        Icon: PropTypes.any,
+        Logo: PropTypes.any,
         InputAccessoryView: PropTypes.func,
     };
 
